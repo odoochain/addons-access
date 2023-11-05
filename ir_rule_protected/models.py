@@ -29,11 +29,12 @@ class IRRule(models.Model):
         return super(IRRule, self).unlink()
 
 
-class Module(models.Model):
+class IrModuleModule(models.Model):
     _inherit = "ir.module.module"
 
     def button_uninstall(self):
         for r in self:
             if r.name == MODULE_NAME and self.env.uid != SUPERUSER_ID:
                 raise exceptions.Warning(_("Only admin can uninstall the module"))
-        return super(Module, self).button_uninstall()
+        return super(IrModuleModule, self).button_uninstall()
+
